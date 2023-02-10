@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All books</title>
+</head>
+<body>
+<div th:each="books:${book}">
+    <a style="color:black" th:href="@{/book/{id}(id=${books.getId()})}"
+       th:text="${books.getTitle() + ',' + books.getAuthor() + ',' + books.getYear()}">book</a>
+</div>
+<hr/>
+<a  style="color:black" href="/book/new">Add book</a>
+<hr/>
+<a  style="color:black" href="/book/search">Find book by name</a>
+<hr/>
+<a style="color:black" href="/book?sort_by_year=true">Sort by year</a>
+<br/>
+<a style="color:black" href="/book?sort_by_year=false">Cancel sort by year</a>
+
+</body>
+</html>
